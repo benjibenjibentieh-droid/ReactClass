@@ -1,14 +1,32 @@
-import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation
+} from 'react-router-dom';
+
 import Home from './pages/Home';
 import About from './pages/About';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Info from './pages/Info';
 
-function App() {
+import Navbar, { Navbar2 } from './Component/Navbar';
+
+function AppContent() {
+  const location = useLocation();
+
+  const pagesWithNavbar2 = ['/', '/login'];
+
   return (
-    <Router>
+    <>
+      {pagesWithNavbar2.includes(location.pathname)
+        ? <Navbar2 />
+        : <Navbar />
+      }
+
       <Routes>
         <Route path="/" element={<SignUp />} />
         <Route path="/about" element={<About />} />
@@ -16,10 +34,16 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/info" element={<Info />} />
       </Routes>
-    </Router>
-
-  
-  )
+    </>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
+export default App;

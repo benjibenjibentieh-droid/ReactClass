@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react'
 
-import Navbar from "../Component/Navbar";
 import Hero from "../Component/Hero";
 import './Info.css'
 
@@ -41,8 +40,7 @@ function Info() {
         }
   return (
     <> 
-        <Navbar />
-        <Hero pagename = "Info Page" />
+      <Hero pagename = "Info Page" />
       <h1>Info Page</h1>
       <div className="user-container">
         {User.map((user) => (

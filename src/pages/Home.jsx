@@ -1,5 +1,4 @@
 import {useState, useEffect} from 'react'
-import Navbar from '../Component/Navbar';
 import Hero from '../Component/Hero';
 
 const catAPI = "https://api.thecatapi.com/v1/images/search?limit=8&size=full&breed_id=beng&sub_id=demo-ca06d4";
@@ -50,7 +49,6 @@ function Home() {
 
   return (
     <>
-      <Navbar />
       <Hero pagename = "Home Page" /> 
       <h1>Home Page</h1>
       <p>This is the home page of the Vite project.</p>
